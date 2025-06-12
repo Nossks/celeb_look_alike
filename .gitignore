@@ -2,3 +2,5 @@ venv
 faces
 faces.zip
 model_training.ipynb
+app.py
+static
