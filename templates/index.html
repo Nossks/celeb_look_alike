@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Celebrity Look-Alike</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Find Your Celebrity Look-Alike</h1>
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*" required>
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if face_filename %}
+      <div class="preview">
+        <h2>Extracted Face</h2>
+        <img
+          src="{{ url_for('static', filename='uploads/' ~ face_filename) }}"
+          alt="Detected Face"
+        >
+      </div>
+      <div class="result">
+        <h2>Prediction</h2>
+        <p>{{ result }}</p>
+      </div>
+    {% elif result %}
+      <div class="result">
+        <h2>Result</h2>
+        <p>{{ result }}</p>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
