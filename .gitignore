@@ -3,3 +3,4 @@ faces
 faces.zip
 data_embedding.pkl
 face_embedding_model.keras
+static/uploads/
